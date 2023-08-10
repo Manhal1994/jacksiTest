@@ -2,15 +2,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/fields/product_name_input_field.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/fields/product_price_input_field.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/fields/store_name_input_field.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/label.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/product_add_button.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/product_add_photos_button.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/product_category.dart';
-import 'package:jacksi_test/ui/screens/add_product/widgets/product_image.dart';
-import 'package:jacksi_test/ui/screens/home/blocs/category/category_bloc.dart';
+import 'package:jacksi_test/res/app_colors.dart';
+import 'package:jacksi_test/ui/add_product/widgets/fields/product_name_input_field.dart';
+import 'package:jacksi_test/ui/add_product/widgets/fields/product_price_input_field.dart';
+import 'package:jacksi_test/ui/add_product/widgets/fields/store_name_input_field.dart';
+import 'package:jacksi_test/ui/add_product/widgets/label.dart';
+import 'package:jacksi_test/ui/add_product/widgets/product_add_button.dart';
+import 'package:jacksi_test/ui/add_product/widgets/product_add_photos_button.dart';
+import 'package:jacksi_test/ui/add_product/widgets/product_category.dart';
+import 'package:jacksi_test/ui/add_product/widgets/product_image.dart';
+import 'package:jacksi_test/ui/home/blocs/category/category_bloc.dart';
 import 'viewmodels/add_product_viewmodel.dart';
 
 class AddProductsPage extends StatefulWidget {
@@ -31,7 +32,7 @@ class AddProductsPageState extends State<AddProductsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF5F5F4),
+      backgroundColor:AppColors.appBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -74,7 +75,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                         child: Text(
                           "اضافة منتجات",
                           style:
-                              TextStyle(fontSize: 20, fontFamily: 'Montserrat'),
+                              TextStyle(fontSize: 20, fontFamily: 'Montserrat',fontWeight: FontWeight.w500),
                           textAlign: TextAlign.center,
                         )),
                   ],

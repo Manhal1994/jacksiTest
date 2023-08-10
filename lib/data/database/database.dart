@@ -2,7 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:jacksi_test/data/database/images.dart';
 import 'package:jacksi_test/data/database/product.dart';
 import 'package:jacksi_test/data/entities/product_dto.dart';
-import 'package:jacksi_test/images.dart';
+import 'package:jacksi_test/res/app_images.dart';
 import 'category.dart';
 part 'database.g.dart';
 

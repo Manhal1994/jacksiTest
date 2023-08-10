@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jacksi_test/data/repository.dart';
-import 'package:jacksi_test/ui/screens/add_product/blocs/add_product/add_product_bloc.dart';
-import 'package:jacksi_test/ui/screens/home/blocs/category/category_bloc.dart';
-import 'package:jacksi_test/ui/screens/home/home_page.dart';
+import 'package:jacksi_test/ui/add_product/blocs/add_product/add_product_bloc.dart';
+import 'package:jacksi_test/ui/home/blocs/category/category_bloc.dart';
+import 'package:jacksi_test/ui/home/home_page.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -14,11 +14,11 @@ void main() async {
 
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider<CategoryBloc>(
-        create: (context) => CategoryBloc(di.sl<Repository>()),
-      ),
       BlocProvider<AddProductBloc>(
         create: (context) => AddProductBloc(di.sl<Repository>()),
+      ),
+      BlocProvider<CategoryBloc>(
+        create: (context) => CategoryBloc(di.sl<Repository>()),
       ),
     ],
     child: MyApp(),
@@ -40,7 +40,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home:  HomePage(),
+            home: HomePage()
+
+
           );
         });
   }

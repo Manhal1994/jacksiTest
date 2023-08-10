@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:jacksi_test/data/database/database.dart';
-
 import '../../../../data/entities/product_dto.dart';
 import '../../../../data/repository.dart';
 
 enum ViewType { horizontal, vertical }
 
-class ProductsScreenViewModel {
+class HomePageViewModel {
   final Repository repository;
 
-  ProductsScreenViewModel(this.repository) {
+  HomePageViewModel(this.repository) {
     repository.allProducts().listen((event) async {
-      // _products.value = await repository.getProducts();
-      // _products.notifyListeners();
       selectCategory(selectedCategory.value);
     });
   }

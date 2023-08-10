@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../images.dart';
+import '../../../res/app_images.dart';
 import '../viewmodels/add_product_viewmodel.dart';
 
 

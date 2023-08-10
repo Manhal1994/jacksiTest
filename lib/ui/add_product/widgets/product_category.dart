@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../data/database/database.dart';
-import '../../../../images.dart';
+import '../../../res/app_images.dart';
 import '../../home/blocs/category/category_bloc.dart';
 import '../viewmodels/add_product_viewmodel.dart';
 

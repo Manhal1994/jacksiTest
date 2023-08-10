@@ -56,7 +56,7 @@ class AddProductViewModel {
   ProductDTO? getProductDTO() {
     if (validateInput()) {
       return ProductDTO(
-          price: double.parse(priceController.text),
+          price: double.parse(priceController.text.replaceAll(",", "")),
           categoryId: productCategory.value!.id,
           productName: productNameController.text.trim(),
           storeName: storeNameController.text.trim(),

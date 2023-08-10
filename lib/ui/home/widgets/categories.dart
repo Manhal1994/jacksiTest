@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../res/app_colors.dart';
-import '../../../res/app_images.dart';
-import '../blocs/category/category_bloc.dart';
+import 'package:jacksi_test/res/app_colors.dart';
+import 'package:jacksi_test/res/app_images.dart';
+import 'package:jacksi_test/ui/home/blocs/category/category_bloc.dart';
 import '../../../data/database/database.dart' as db;
-import '../viewmodels/home_page_viewmodel.dart';
+import 'package:jacksi_test/ui/home/viewmodels/home_page_viewmodel.dart';
 
 class Categories extends StatelessWidget {
   final HomePageViewModel model;

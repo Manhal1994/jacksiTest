@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jacksi_test/data/database/database.dart';
-import '../../../../data/entities/product_dto.dart';
-import '../../../../data/repository.dart';
+import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/repository.dart';
 
 enum ViewType { horizontal, vertical }
 

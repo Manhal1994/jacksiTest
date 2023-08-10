@@ -21,6 +21,7 @@ class ProductPriceInputField extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: TextField(
             controller: controller,
+            textDirection: TextDirection.rtl,
             keyboardType: TextInputType.number,
             decoration: InputDecoration.collapsed(
                 hintText: 'السعر',

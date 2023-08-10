@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jacksi_test/data/database/database.dart';
 import 'package:jacksi_test/data/entities/product_dto.dart';
@@ -26,8 +29,14 @@ class AddProductViewModel {
       final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
       if (image != null) {
-        _productImages.value.add(image.path);
-        _productImages.notifyListeners();
+        File? croppedFile = await ImageCropper()
+            .cropImage(sourcePath: image.path, aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+        ]);
+        if (croppedFile != null) {
+          _productImages.value.add(croppedFile.path);
+          _productImages.notifyListeners();
+        }
       }
     } catch (e) {
       debugPrint("error" + e.toString());
@@ -66,7 +75,9 @@ class AddProductViewModel {
   }
 
   bool validatePrice() {
-    return (priceController.text.isNotEmpty||isNumeric(priceController.text)||(double.tryParse(priceController.text.trim())??0)>0);
+    return (priceController.text.isNotEmpty ||
+        isNumeric(priceController.text) ||
+        (double.tryParse(priceController.text.trim()) ?? 0) > 0);
   }
 
   bool validateImages() {

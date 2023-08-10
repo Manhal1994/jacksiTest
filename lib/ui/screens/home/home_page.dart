@@ -167,13 +167,12 @@ class HomePageState extends State<HomePage> {
                                               SizedBox(
                                                 height: 12.h,
                                               ),
-                                              Align(
+                                              const Align(
                                                   alignment:
-                                                      Alignment.centerRight,
+                                                      Alignment.center,
                                                   child: Text(
-                                                    state
-                                                        .categories[index].name,
-                                                    style: const TextStyle(
+                                                    "عرض الكل",
+                                                    style:  TextStyle(
                                                         fontFamily:
                                                             'Montserrat',
                                                         fontSize: 12),
@@ -233,7 +232,7 @@ class HomePageState extends State<HomePage> {
                                                 ),
                                                 Align(
                                                     alignment:
-                                                        Alignment.centerRight,
+                                                        Alignment.center,
                                                     child: Text(
                                                       state
                                                           .categories[index - 1]
@@ -318,7 +317,8 @@ class HomePageState extends State<HomePage> {
               child: ValueListenableBuilder<List<ProductDTO>>(
                   valueListenable: widget.model.products,
                   builder: (context, products, _) {
-                    return ValueListenableBuilder<ViewType>(
+                    return products.isNotEmpty?
+                    ValueListenableBuilder<ViewType>(
                         valueListenable: widget.model.selectedViewType,
                         builder: (context, value, _) {
                           return value == ViewType.vertical
@@ -560,7 +560,7 @@ class HomePageState extends State<HomePage> {
                                       ),
                                     );
                                   });
-                        });
+                        }):const Center(child: Text("لا يوجد منتجات لعرضها",style: TextStyle(fontFamily: 'Montserrat',fontSize: 18),),);
                   }),
             ),
           ],

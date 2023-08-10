@@ -60,8 +60,8 @@ class ProductCategory extends StatelessWidget {
                         ))),
               )
             : state is CategoryLoading
-                ? CircularProgressIndicator()
-                : Text("Error");
+                ? const CircularProgressIndicator()
+                : const Text("خطأ");
       },
     );
   }

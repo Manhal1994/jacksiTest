@@ -21,6 +21,7 @@ class ProductNameInputField extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: TextField(
             controller: controller,
+            textDirection: TextDirection.rtl,
             decoration: InputDecoration.collapsed(
                 hintText: 'اسم المنتج',
                 hintStyle: TextStyle(

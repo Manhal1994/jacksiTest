@@ -49,14 +49,22 @@ class AddProductsPageState extends State<AddProductsPage> {
                     Positioned(
                       right: 0,
                       top: 0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Container(
-                          width: 50.w,
-                          height: 50.w,
-                          decoration: const BoxDecoration(color: Colors.white),
-                          child: const Center(
-                            child: Icon(Icons.arrow_forward_ios),
+                      child: Material(
+                        color: Colors.white,
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).pop();
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              width: 50.w,
+                              height: 50.w,
+                              decoration: const BoxDecoration(color: Colors.white),
+                              child: const Center(
+                                child: Icon(Icons.arrow_forward_ios),
+                              ),
+                            ),
                           ),
                         ),
                       ),

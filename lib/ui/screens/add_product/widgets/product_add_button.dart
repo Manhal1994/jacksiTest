@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../../../data/entities/product_dto.dart';
 import '../blocs/add_product/add_product_bloc.dart';
 import '../viewmodels/add_product_viewmodel.dart';
@@ -18,6 +19,14 @@ class ProductAddButton extends StatelessWidget {
         listener: (context, state) {
           if (state is AddProductSuccess) {
             Navigator.of(context).pop();
+            Fluttertoast.showToast(
+                msg: "تمت إضافة المنتج بنجاح",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0);
           }
         },
         builder: (context, state) {

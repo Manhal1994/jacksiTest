@@ -20,18 +20,18 @@ class ProductsViewType extends StatelessWidget {
             if (value == ViewType.horizontal) {
               type = "عمودي";
             }
-            return Material(
-              color: Colors.white,
-              child: InkWell(
-                onTap: () {
-                  if (value == ViewType.vertical) {
-                    model.selectViewType(ViewType.horizontal);
-                  } else {
-                    model.selectViewType(ViewType.vertical);
-                  }
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(9),
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(9),
+              child: Material(
+                color: Colors.white,
+                child: InkWell(
+                  onTap: () {
+                    if (value == ViewType.vertical) {
+                      model.selectViewType(ViewType.horizontal);
+                    } else {
+                      model.selectViewType(ViewType.vertical);
+                    }
+                  },
                   child: Container(
                     height: 36.h,
                     color: Colors.white,

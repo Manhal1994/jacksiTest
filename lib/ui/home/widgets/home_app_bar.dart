@@ -20,8 +20,15 @@ class HomeAppBar extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AddProductsPage()));
+                  final pageRouter = PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const AddProductsPage(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                        return  _transitionsBuilder(context, animation, secondaryAnimation, child);
+                    },
+                  );
+                  Navigator.of(context).push(pageRouter);
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
@@ -49,6 +56,19 @@ class HomeAppBar extends StatelessWidget {
               )),
         ],
       ),
+    );
+  }
+ Widget  _transitionsBuilder (context, animation, secondaryAnimation, child){
+    const begin = Offset(0.0, 1.0);
+    const end = Offset.zero;
+    const curve = Curves.ease;
+
+    var tween = Tween(begin: begin, end: end)
+        .chain(CurveTween(curve: curve));
+
+    return SlideTransition(
+      position: animation.drive(tween),
+      child: child,
     );
   }
 }

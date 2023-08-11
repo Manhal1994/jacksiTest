@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jacksi_test/res/app_colors.dart';
+import 'package:jacksi_test/ui/add_product/widgets/add_product_app_bar.dart';
 import 'package:jacksi_test/ui/add_product/widgets/fields/product_name_input_field.dart';
 import 'package:jacksi_test/ui/add_product/widgets/fields/product_price_input_field.dart';
 import 'package:jacksi_test/ui/add_product/widgets/fields/store_name_input_field.dart';
@@ -42,46 +43,8 @@ class AddProductsPageState extends State<AddProductsPage> {
               SizedBox(
                 height: 26.h,
               ),
-              SizedBox(
-                height: 50.h,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: Material(
-                        color: Colors.white,
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).pop();
-                          },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Container(
-                              width: 50.w,
-                              height: 50.w,
-                              decoration: const BoxDecoration(color: Colors.white),
-                              child: const Center(
-                                child: Icon(Icons.arrow_forward_ios),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "اضافة منتجات",
-                          style:
-                              TextStyle(fontSize: 20, fontFamily: 'Montserrat',fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.center,
-                        )),
-                  ],
-                ),
-              ),
+              // ---------- App bar ----------------
+              const AddProductAppBar(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

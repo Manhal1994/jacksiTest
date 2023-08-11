@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:jacksi_test/data/database/images.dart';
-import 'package:jacksi_test/data/database/product.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/database/tables/images.dart';
+import 'package:jacksi_test/data/database/tables/product.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:jacksi_test/res/app_images.dart';
-import 'category.dart';
+import 'tables/category.dart';
 part 'database.g.dart';
 
 @DriftDatabase(tables: [Categories, Products, Images])
@@ -11,7 +11,7 @@ class Database extends _$Database {
   Database(QueryExecutor e) : super(e);
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 1;
 
   @override
   MigrationStrategy get migration {

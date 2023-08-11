@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:jacksi_test/data/database/product.dart';
+import 'package:jacksi_test/data/database/tables/product.dart';
 
 @DataClassName('Image')
 class Images extends Table {

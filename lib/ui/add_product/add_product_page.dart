@@ -12,6 +12,7 @@ import 'package:jacksi_test/ui/add_product/widgets/product_add_photos_button.dar
 import 'package:jacksi_test/ui/add_product/widgets/product_category.dart';
 import 'package:jacksi_test/ui/add_product/widgets/product_image.dart';
 import 'package:jacksi_test/ui/home/blocs/category/category_bloc.dart';
+import '../../injection_container.dart';
 import 'viewmodels/add_product_viewmodel.dart';
 
 class AddProductsPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class AddProductsPage extends StatefulWidget {
 }
 
 class AddProductsPageState extends State<AddProductsPage> {
-  final AddProductViewModel addProductViewModel = AddProductViewModel();
+  final AddProductViewModel model = sl<AddProductViewModel>();
   @override
   void initState() {
     BlocProvider.of<CategoryBloc>(context).add(GetCategoryEvent());
@@ -93,7 +94,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                         height: 14.h,
                       ),
                       ValueListenableBuilder<List<String>>(
-                          valueListenable: addProductViewModel.productImages,
+                          valueListenable: model.productImages,
                           builder: (context, value, _) {
                             return SizedBox(
                               height: 110.w,
@@ -107,10 +108,10 @@ class AddProductsPageState extends State<AddProductsPage> {
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
                                           return ProductImage(
-                                            imageFile: File(addProductViewModel
+                                            imageFile: File(model
                                                 .productImages.value[index]),
                                             onDelete: () {
-                                              addProductViewModel
+                                              model
                                                   .deleteProductImage(index);
                                             },
                                           );
@@ -122,7 +123,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                       SizedBox(
                         height: 14.h,
                       ),
-                      ProductAddPhotosButton(model:addProductViewModel),
+                      ProductAddPhotosButton(model:model),
                       SizedBox(
                         height: 26.h,
                       ),
@@ -131,7 +132,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                         height: 6.h,
                       ),
                       ProductNameInputField(
-                        controller: addProductViewModel.productNameController,
+                        controller: model.productNameController,
                       ),
                       SizedBox(
                         height: 21.h,
@@ -141,7 +142,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                         height: 6.h,
                       ),
                       StoreNameInputField(
-                        controller: addProductViewModel.storeNameController,
+                        controller: model.storeNameController,
                       ),
                       SizedBox(
                         height: 21.h,
@@ -151,7 +152,7 @@ class AddProductsPageState extends State<AddProductsPage> {
                         height: 6.h,
                       ),
                       ProductPriceInputField(
-                        controller: addProductViewModel.priceController,
+                        controller: model.priceController,
                       ),
                       SizedBox(
                         height: 21.h,
@@ -160,11 +161,11 @@ class AddProductsPageState extends State<AddProductsPage> {
                       SizedBox(
                         height: 6.h,
                       ),
-                      ProductCategory(model: addProductViewModel,),
+                      ProductCategory(model: model,),
                       SizedBox(
                         height: 32.h,
                       ),
-                      ProductAddButton(model:addProductViewModel)
+                      ProductAddButton(model:model)
                     ],
                   ),
                 ),
@@ -174,5 +175,11 @@ class AddProductsPageState extends State<AddProductsPage> {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    model.productImages.dispose();
+    model.productCategory.dispose();
+    super.dispose();
   }
 }

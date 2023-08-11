@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:jacksi_test/ui/home/viewmodels/home_page_viewmodel.dart';
 
 import '../../../res/app_colors.dart';

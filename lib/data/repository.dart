@@ -1,5 +1,5 @@
 import 'package:jacksi_test/data/database/database.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 
 class Repository {
   final Database _db;

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jacksi_test/data/database/database.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class AddProductViewModel {
@@ -74,9 +74,9 @@ class AddProductViewModel {
   }
 
   bool validatePrice() {
-    return (priceController.text.isNotEmpty ||
-        isNumeric(priceController.text) ||
-        (double.tryParse(priceController.text.trim()) ?? 0) > 0);
+    return (priceController.text.isNotEmpty &&
+        isNumeric(priceController.text)  &&
+        (double.tryParse(priceController.text) ?? -1) > 0);
   }
 
   bool validateImages() {

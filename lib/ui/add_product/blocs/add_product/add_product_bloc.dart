@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../data/repository.dart';
@@ -16,7 +16,7 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
         try {
           final result = await repository.addProduct(event.productDTO);
           emit(AddProductSuccess(result));
-        } on Exception catch (e) {
+        }  catch (e) {
           emit(AddProductFail(e.toString()));
         }
       }

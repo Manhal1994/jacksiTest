@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../data/entities/product_dto.dart';
+import '../../../data/dto/product_dto.dart';
 import '../../../res/app_colors.dart';
 import '../../../res/app_images.dart';
 import '../viewmodels/home_page_viewmodel.dart';

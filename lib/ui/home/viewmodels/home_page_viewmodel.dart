@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:jacksi_test/data/database/database.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:jacksi_test/data/repository.dart';
 
 

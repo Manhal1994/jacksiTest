@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jacksi_test/ui/home/viewmodels/home_page_viewmodel.dart';
-import 'package:jacksi_test/data/entities/product_dto.dart';
+import 'package:jacksi_test/data/dto/product_dto.dart';
 import 'package:jacksi_test/ui/home/widgets/vertical_product_item.dart';
 
 import 'horizontal_product_item.dart';

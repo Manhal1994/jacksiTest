@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final HomePageViewModel model = HomePageViewModel(sl<Repository>());
+  final HomePageViewModel model = sl<HomePageViewModel>();
 
   @override
   void initState() {
@@ -79,5 +79,12 @@ class HomePageState extends State<HomePage> {
         ),
       )),
     );
+  }
+  @override
+  void dispose() {
+    model.products.dispose();
+    model.selectedViewType.dispose();
+    model.selectedCategory.dispose();
+    super.dispose();
   }
 }

@@ -56,21 +56,16 @@ class Database extends _$Database {
               productId: Value<int>(id), path: Value<String>(e))));
     });
   }
-  Stream<List<QueryRow>>  sds(){
-    return customSelect(
-      'SELECT products.product_name,products.store_name,products.category_id,products.id,products.price, GROUP_CONCAT(images.path) as path from products JOIN images ON products.id=images.product_id group by images.product_id',
-    ).watch();
-  }
+
   Future<List<ProductDTO>> getProducts() {
     return customSelect(
-      'SELECT products.product_name,products.store_name,products.category_id,products.id,products.price, GROUP_CONCAT(images.path) as path from products JOIN images ON products.id=images.product_id group by images.product_id',
+      'SELECT products.product_name,products.store_name,products.category_id,products.id,products.price, GROUP_CONCAT(images.path) as path from products JOIN images ON products.id=images.product_id group by images.product_id order by products.id desc',
     ).map((element) {
       double price = element.read<double>('price');
       String name = element.read<String>('product_name');
       int categoryId = element.read<int>('category_id');
       String storeName = element.read<String>('store_name');
       List<String> images = element.read<String>('path').split(",");
-
       return ProductDTO(
           price: price,
           productName: name,
@@ -78,12 +73,11 @@ class Database extends _$Database {
           storeName: storeName,
           images: images);
     }).get();
-
   }
 
   Future<List<ProductDTO>> getProductsByCategory(int categoryId) {
     return customSelect(
-      'SELECT products.product_name,products.store_name,products.category_id,products.id,products.price, GROUP_CONCAT(images.path) as path from products JOIN images ON products.id=images.product_id where products.category_id=${categoryId} group by images.product_id',
+      'SELECT products.product_name,products.store_name,products.category_id,products.id,products.price, GROUP_CONCAT(images.path) as path from products JOIN images ON products.id=images.product_id where products.category_id=$categoryId group by images.product_id order by products.id desc',
     ).map((element) {
       double price = element.read<double>('price');
       String name = element.read<String>('product_name');
@@ -98,10 +92,9 @@ class Database extends _$Database {
           storeName: storeName,
           images: images);
     }).get();
-
   }
 
-  Stream<List<Product>> allProducts(){
-   return select(products).watch();
+  Stream<List<Product>> allProducts() {
+    return select(products).watch();
   }
 }

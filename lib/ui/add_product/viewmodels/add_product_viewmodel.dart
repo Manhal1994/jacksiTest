@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -39,7 +38,7 @@ class AddProductViewModel {
         }
       }
     } catch (e) {
-      debugPrint("error" + e.toString());
+      debugPrint("Pick image error $e");
     }
   }
 

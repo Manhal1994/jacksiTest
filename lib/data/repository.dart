@@ -1,4 +1,3 @@
-import 'package:drift/drift.dart';
 import 'package:jacksi_test/data/database/database.dart';
 import 'package:jacksi_test/data/entities/product_dto.dart';
 
@@ -25,11 +24,5 @@ class Repository {
   Stream<List<Product>> allProducts(){
   return  _db.allProducts();
   }
-
-  Stream<List<QueryRow>>  sds(){
-    return  _db.sds();
-  }
-
-
 
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:jacksi_test/data/database/database.dart';
 import 'package:jacksi_test/data/entities/product_dto.dart';
 import 'package:jacksi_test/data/repository.dart';
+
 
 enum ViewType { horizontal, vertical }
 
@@ -43,5 +45,14 @@ class HomePageViewModel {
       _products.value = await repository.getProducts();
     }
     _products.notifyListeners();
+  }
+
+  String formatPrice(String price){
+    // Remove trailing zero
+    RegExp regex = RegExp(r'([.]*0)(?!.*\d)');
+    String str =  price.replaceAll(regex, '');
+    //  ICU formatting pattern
+    var formatter = NumberFormat.decimalPattern();
+    return formatter.format(double.tryParse(str)??0);
   }
 }
